@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>India Calculator Hub – GST, EMI, Percentage, Age & More</title>
+  <meta name="description" content="Free online calculators for India: GST, EMI, percentage, age, loan, SIP, discount and fuel cost calculators. Fast, simple and mobile friendly.">
+  <meta name="keywords" content="GST calculator, EMI calculator, percentage calculator, age calculator, loan calculator, SIP calculator, discount calculator, fuel cost calculator India">
+  <link rel="canonical" href="https://example.com/">
+  <meta property="og:title" content="India Calculator Hub">
+  <meta property="og:description" content="Free GST, EMI, percentage, age, loan, SIP, discount and fuel cost calculators.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="India Calculator Hub home">
+      <span class="brand-mark">₹</span>
+      <span>India Calculator Hub</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <nav id="navLinks">
+      <a href="#calculators">Calculators</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">FREE • FAST • MOBILE FRIENDLY</p>
+        <h1>Everyday calculators for India</h1>
+        <p class="hero-copy">Calculate GST, EMI, percentage, age, loans, SIP returns, discounts and fuel costs in seconds.</p>
+        <a class="primary-btn" href="#calculators">Explore Calculators</a>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">Popular searches</div>
+        <div class="search-pill">GST calculator</div>
+        <div class="search-pill">EMI calculator</div>
+        <div class="search-pill">Percentage calculator</div>
+        <div class="search-pill">Age calculator</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section" id="calculators">
+    <div class="section-heading">
+      <p class="eyebrow">TOOLS</p>
+      <h2>Choose a calculator</h2>
+      <input id="search" class="search" type="search" placeholder="Search calculators..." aria-label="Search calculators">
+    </div>
+
+    <div class="calculator-grid" id="calculatorGrid">
+      <article class="card calc-card" data-name="gst tax goods services tax">
+        <div class="icon">₹</div><h3>GST Calculator</h3>
+        <p>Add or remove GST from a price.</p>
+        <div class="form-row">
+          <label>Amount (₹)<input id="gstAmount" type="number" min="0" value="1000"></label>
+          <label>GST %<input id="gstRate" type="number" min="0" step="0.01" value="18"></label>
+        </div>
+        <div class="choice-row">
+          <label><input type="radio" name="gstMode" value="add" checked> Add GST</label>
+          <label><input type="radio" name="gstMode" value="remove"> Remove GST</label>
+        </div>
+        <button class="calc-btn" onclick="gstCalc()">Calculate</button>
+        <div class="result" id="gstResult">Enter values and calculate.</div>
+      </article>
+
+      <article class="card calc-card" data-name="emi home loan car loan">
+        <div class="icon">🏦</div><h3>EMI Calculator</h3>
+        <p>Estimate monthly loan repayment.</p>
+        <label>Loan amount (₹)<input id="emiPrincipal" type="number" min="0" value="500000"></label>
+        <div class="form-row">
+          <label>Interest % / year<input id="emiRate" type="number" min="0" step="0.01" value="8.5"></label>
+          <label>Tenure (years)<input id="emiYears" type="number" min="1" value="5"></label>
+        </div>
+        <button class="calc-btn" onclick="emiCalc()">Calculate</button>
+        <div class="result" id="emiResult">Enter values and calculate.</div>
+      </article>
+
+      <article class="card calc-card" data-name="percentage marks percent">
+        <div class="icon">%</div><h3>Percentage Calculator</h3>
+        <p>Find a percentage or percentage change.</p>
+        <label>What is <input id="pctA" type="number" value="25"> % of <input id="pctB" type="number" value="200"></label>
+        <button class="calc-btn" onclick="percentageCalc()">Calculate</button>
+        <div class="result" id="pctResult">Enter values and calculate.</div>
+      </article>
+
+      <article class="card calc-card" data-name="age birthday date">
+        <div class="icon">🎂</div><h3>Age Calculator</h3>
+        <p>Calculate age in years, months and days.</p>
+        <label>Date of birth<input id="dob" type="date"></label>
+        <button class="calc-btn" onclick="ageCalc()">Calculate Age</button>
+        <div class="result" id="ageResult">Select your date of birth.</div>
+      </article>
+
+      <article class="card calc-card" data-name="loan interest principal">
+        <div class="icon">💰</div><h3>Loan Calculator</h3>
+        <p>See total interest and total repayment.</p>
+        <label>Loan amount (₹)<input id="loanP" type="number" value="300000"></label>
+        <div class="form-row">
+          <label>Rate % / year<input id="loanR" type="number" step="0.01" value="10"></label>
+          <label>Years<input id="loanY" type="number" value="3"></label>
+        </div>
+        <button class="calc-btn" onclick="loanCalc()">Calculate</button>
+        <div class="result" id="loanResult">Enter values and calculate.</div>
+      </article>
+
+      <article class="card calc-card" data-name="sip mutual fund investment">
+        <div class="icon">📈</div><h3>SIP Calculator</h3>
+        <p>Estimate the future value of monthly investments.</p>
+        <label>Monthly SIP (₹)<input id="sipP" type="number" value="5000"></label>
+        <div class="form-row">
+          <label>Expected return %<input id="sipR" type="number" step="0.1" value="12"></label>
+          <label>Years<input id="sipY" type="number" value="10"></label>
+        </div>
+        <button class="calc-btn" onclick="sipCalc()">Calculate</button>
+        <div class="result" id="sipResult">Enter values and calculate.</div>
+      </article>
+
+      <article class="card calc-card" data-name="discount sale price">
+        <div class="icon">🏷️</div><h3>Discount Calculator</h3>
+        <p>Find discount amount and final price.</p>
+        <label>Original price (₹)<input id="discP" type="number" value="2000"></label>
+        <label>Discount %<input id="discR" type="number" min="0" max="100" value="20"></label>
+        <button class="calc-btn" onclick="discountCalc()">Calculate</button>
+        <div class="result" id="discResult">Enter values and calculate.</div>
+      </article>
+
+      <article class="card calc-card" data-name="fuel petrol diesel mileage travel">
+        <div class="icon">⛽</div><h3>Fuel Cost Calculator</h3>
+        <p>Estimate trip fuel cost from distance and mileage.</p>
+        <label>Distance (km)<input id="fuelD" type="number" value="300"></label>
+        <div class="form-row">
+          <label>Mileage (km/L)<input id="fuelM" type="number" step="0.1" value="15"></label>
+          <label>Fuel price ₹/L<input id="fuelP" type="number" step="0.01" value="100"></label>
+        </div>
+        <button class="calc-btn" onclick="fuelCalc()">Calculate</button>
+        <div class="result" id="fuelResult">Enter values and calculate.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="container section info-section" id="about">
+    <div class="info-card">
+      <p class="eyebrow">ABOUT</p>
+      <h2>Simple tools for everyday calculations</h2>
+      <p>India Calculator Hub is designed around common calculation needs. Results are estimates for general informational use; verify important financial or tax decisions with the relevant official source or professional.</p>
+    </div>
+  </section>
+
+  <section class="container section" id="faq">
+    <div class="section-heading"><p class="eyebrow">FAQ</p><h2>Frequently asked questions</h2></div>
+    <div class="faq">
+      <details><summary>Are these calculators free?</summary><p>Yes. The basic calculators on this demo are free to use.</p></details>
+      <details><summary>Is the EMI result exact?</summary><p>The result uses the standard reducing-balance EMI formula. Actual lender charges, taxes, fees or rounding can change the final repayment.</p></details>
+      <details><summary>Can I add more calculators?</summary><p>Yes. The JavaScript is modular, so additional calculators can be added as new cards and functions.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div><strong>India Calculator Hub</strong><p>Useful calculators, made simple.</p></div>
+    <div><a href="#calculators">Calculators</a><a href="#faq">FAQ</a></div>
+  </div>
+  <div class="container copyright">© <span id="year"></span> India Calculator Hub. For informational use.</div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
