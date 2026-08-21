@@ -29,7 +29,7 @@ function percentageCalc(){
   setResult("pctResult",b===0?"The second value cannot be zero.":`${a}% of ${b} = <strong>${(a*b/100).toFixed(2)}</strong>`);
 }
 
-function ageCalc(){
+function ageCalc(){ 
   const raw=document.getElementById("dob").value;
   if(!raw)return setResult("ageResult","Select your date of birth.");
   const dob=new Date(raw+"T00:00:00"), now=new Date();
